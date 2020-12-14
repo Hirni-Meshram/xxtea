@@ -1,58 +1,18 @@
 language: python
+group: edge
+virt: lxd
 
 matrix:
-  allow_failures:
-    - python: nightly
   include:
-    - python: 2.7
-      arch: arm64
-    - python: 2.7
-      arch: amd64
-    - python: 3.4
-      arch: arm64
-      dist: trusty
-    - python: 3.4
-      arch: amd64
-      dist: trusty
-    - python: 3.5
-      arch: arm64
-    - python: 3.5
-      arch: amd64
-    - python: 3.6
-      arch: arm64
-    - python: 3.6
-      arch: amd64
-    - python: 3.7
-      arch: arm64
-      dist: xenial
-    - python: 3.7
+    - python: 3.8
       arch: amd64
       dist: xenial
     - python: 3.8
       arch: arm64
       dist: xenial
     - python: 3.8
-      arch: amd64
+      arch: arm64-graviton2
       dist: xenial
-    - python: nightly
-      arch: arm64
-    - python: nightly
-      arch: amd64
-    - python: pypy
-      arch: amd64
-    - python: pypy3
-      arch: amd64
-    # linux wheels
-    - dist: trusty
-      sudo: required
-      services:
-        - docker
-      env: XXTEA_BUILDWHEELS=1
-    # osx wheels
-    - os: osx
-      osx_image: xcode9.4
-      language: generic
-      env: XXTEA_BUILDWHEELS=1
       before_install:
         - SSL_CERT_FILE=$(brew --prefix)/etc/openssl/cert.pem
         - sudo pip install -U pip setuptools twine
