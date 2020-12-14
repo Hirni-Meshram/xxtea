@@ -12,10 +12,10 @@ matrix:
       dist: xenial
     - python: 3.8
       arch: arm64-graviton2
-      dist: bionic
-      before_install:
-        - SSL_CERT_FILE=$(brew --prefix)/etc/openssl/cert.pem
-        - sudo pip install -U pip setuptools twine
+      dist: xenial
+      #before_install:
+       # - SSL_CERT_FILE=$(brew --prefix)/etc/openssl/cert.pem
+        #- sudo pip install -U pip setuptools twine
 
 install:
   - gcc --version
